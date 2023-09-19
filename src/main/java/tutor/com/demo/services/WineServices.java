@@ -60,8 +60,8 @@ public class WineServices {
             wineToEdit.get().setCountry(wineWithEdits.getCountry());
             wineToEdit.get().setType(wineWithEdits.getType());
             wineToEdit.get().setYear(wineWithEdits.getYear());
-            return null;
+            return "Wine Updated.";
         }
-        return null;
+        return "That wine does not exist.";
     }
 }
