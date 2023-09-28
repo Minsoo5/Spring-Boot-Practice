@@ -6,5 +6,4 @@ import tutor.com.demo.model.ChefModel;
 @Repository
 public interface ChefRepository extends JpaRepository <ChefModel, Integer> {
 
-
 }

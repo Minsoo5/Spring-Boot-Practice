@@ -26,7 +26,7 @@ public class ChefServices {
     public String saveChef(ChefModel chef) {
         //creating a new chef
         chefRepository.save(chef);
-        return "chef ID : " + chef.getId() + "has been created.";
+        return "chef ID : " + chef.getId() + " has been created.";
     }
 
     public ChefModel findChefById(Integer id) {
@@ -41,9 +41,9 @@ public class ChefServices {
         Optional<ChefModel> exist = chefRepository.findById(id);
         if (exist.isPresent()) {
             chefRepository.deleteById(id);
-            return "Chef ID: " + id + "has been deleted.";
+            return "Chef ID: " + id + " has been deleted.";
         }
-        return "Chef with that ID" + id + "does not exist.";
+        return "Chef with that ID" + id + " does not exist.";
     }
 
     public String editChefById(Integer id, ChefModel chefWithEdits) {
@@ -51,10 +51,11 @@ public class ChefServices {
         Optional<ChefModel> exist = chefRepository.findById(id);
         if (exist.isPresent()) {
             if (chefWithEdits.getId() == id) {
-                exist.get().setName(chefWithEdits.getName());
-                exist.get().setSignatureDish(chefWithEdits.getSignatureDish());
-                exist.get().setYearsOfService(chefWithEdits.getYearsOfService());
-                return "Updated Chef ID: " + id + "Successfully";
+//                exist.get().setName(chefWithEdits.getName());
+//                exist.get().setSignatureDish(chefWithEdits.getSignatureDish());
+//                exist.get().setYearsOfService(chefWithEdits.getYearsOfService());
+                chefRepository.save(chefWithEdits);
+                return "Updated Chef ID: " + id + " Successfully";
             }
             return "JSON Object not matching Chef ID";
         }

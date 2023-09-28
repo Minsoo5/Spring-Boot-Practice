@@ -44,7 +44,7 @@ public class WineController {
 
     @PutMapping("/{id}")
     public String editWineById(@PathVariable Integer id, @RequestBody WineModel wineWithEdits) {
-        return wineServices.editWine(wineWithEdits, id);
+        return wineServices.editWine(id, wineWithEdits);
     }
 
     @DeleteMapping("/{id}")

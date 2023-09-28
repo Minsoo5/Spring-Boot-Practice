@@ -54,12 +54,13 @@ public class WineServices {
         }
     }
 
-    public String editWine(WineModel wineWithEdits, Integer id) {
+    public String editWine(Integer id, WineModel wineWithEdits) {
         Optional<WineModel> wineToEdit = wineRepository.findById(id);
         if (wineToEdit.isPresent()) {
-            wineToEdit.get().setCountry(wineWithEdits.getCountry());
-            wineToEdit.get().setType(wineWithEdits.getType());
-            wineToEdit.get().setYear(wineWithEdits.getYear());
+//            wineToEdit.get().setCountry(wineWithEdits.getCountry());
+//            wineToEdit.get().setType(wineWithEdits.getType());
+//            wineToEdit.get().setYear(wineWithEdits.getYear());
+            wineRepository.save(wineWithEdits);
             return "Wine Updated.";
         }
         return "That wine does not exist.";
